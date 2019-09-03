@@ -11,6 +11,7 @@ public class JunoLib extends JavaPlugin implements Listener {
 		Bukkit.getConsoleSender().sendMessage("  __ / /_ _____  ___  / /  (_) /");
 		Bukkit.getConsoleSender().sendMessage(" / // / // / _ \\/ _ \\/ /__/ / _ \\");
 		Bukkit.getConsoleSender().sendMessage(" \\___/\\_,_/_//_/\\___/____/_/_.__/");
+		
 	}
 	
 	@Override public void onDisable() {}

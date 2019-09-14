@@ -1,6 +1,7 @@
 package xyz.juno.lib.main.cmds;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,6 +16,8 @@ public interface CmdsInterface {
 	boolean isLength(String[] a, int length);
 	boolean isMinvMaxLength(String[] a, int min, int max);
 	boolean isMaxLength(String[] a, int length);
+	boolean isMinLength(String[] a, int length);
+	boolean isCommand(Command c, String regex);
 	
 	public static class CmdsExecute implements CmdsInterface {
 		private CommandSender sender;
@@ -72,6 +75,16 @@ public interface CmdsInterface {
 		@Override
 		public boolean isMaxLength(String[] a, int length) {
 			return a.length < length ? true : false;
+		}
+
+		@Override
+		public boolean isCommand(Command c, String regex) {
+			return c.getLabel().toLowerCase().matches(regex);
+		}
+
+		@Override
+		public boolean isMinLength(String[] a, int length) {
+			return a.length > length ? true : false;
 		}
 	}
 	

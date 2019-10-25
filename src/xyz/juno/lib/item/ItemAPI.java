@@ -77,11 +77,43 @@ public class ItemAPI implements Listener {
 		return new ItemStack(material, amount, durability);
 	}
 	
+	public static ItemStack ItemStackAPI(Material material, int amount, byte durability, List<String> lore) {
+		 ItemStack itemStack = new ItemStack(material, amount, durability);
+		 ItemMeta itemMeta = itemStack.getItemMeta();
+		 
+		 List<String> list = new ArrayList<String>();
+		 
+		 for (String l : lore) {
+			 list.add(Color(l));
+		 }
+		 
+		 itemMeta.setLore(list);
+		 itemStack.setItemMeta(itemMeta);
+		 return itemStack;
+	}
+	
 	public static ItemStack ItemStackAPI(Material material, String name) {
 		ItemStack itemStack = new ItemStack(material);
 		ItemMeta meta = itemStack.getItemMeta();
 		meta.setDisplayName(Color(name));
 		itemStack.setItemMeta(meta);
+		return itemStack;
+	}
+	
+	public static ItemStack ItemStackAPI(Material material, String name, List<String> lore) {
+		ItemStack itemStack = new ItemStack(material);
+		ItemMeta itemMeta = itemStack.getItemMeta();
+		itemMeta.setDisplayName(Color(name));
+
+		List<String> list = new ArrayList<String>();
+		 
+		for (String l : lore) {
+			list.add(Color(l));
+		}
+		 
+		itemMeta.setLore(list);
+		itemStack.setItemMeta(itemMeta);
+
 		return itemStack;
 	}
 	
